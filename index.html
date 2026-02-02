@@ -104,27 +104,26 @@
 
 <script>
   // LOGICA DE CONTENCION SEGUN RESULTADO
+
+  // LOGICA DE CONTENCION SEGUN RESULTADO
   document.getElementById("Resultado").addEventListener("change", function() {
     const val = this.value.toUpperCase();
     const contencion = document.getElementById("Contencion");
 
-    switch(val) {
-      case "CONSULTA":
-        contencion.value = "NO APLICA (Solo consultas)";
-        break;
-      case "CONTENIDO":
-        contencion.value = "SI";
-        break;
-      case "BAJA TOTAL":
-        contencion.value = "NO";
-        break;
-      case "BAJA PARCIAL":
-        contencion.value = "SI";
-        break;
-      default:
-        contencion.value = "";
+    if (!contencion) return; // Seguridad: si no existe, salir
+
+    if (val === "CONSULTA") {
+      contencion.value = "NO APLICA (Solo consultas)";
+    } else if (val === "CONTENIDO" || val === "BAJA PARCIAL") {
+      contencion.value = "SI";
+    } else if (val === "BAJA TOTAL") {
+      contencion.value = "NO";
+    } else {
+      contencion.value = "";
     }
   });
+
+
 
   // ENVIO FORMULARIO
   document.getElementById("googleForm").addEventListener("submit", function(e) {
@@ -140,4 +139,5 @@
 
 </body> 
 </html>
+
 
