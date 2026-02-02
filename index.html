@@ -83,7 +83,15 @@
   <!-- SEGUNDO BLOQUE -->
   <hr>
   <input id="Contencion" name="entry.1265624613" placeholder="Contención" required readonly>
-  <input type="date" name="entry.526710020" required>
+
+    <!-- Transferencia a isla de validacion -->
+  <select id="Tenencia" name="entry.526710020" required>
+    <option value="">Selecciona</option>
+    <option value="Si">Si</option>
+    <option value="No">No</option>
+  </select>
+<input id="PPContenidos" name="entry.2021424275" placeholder="PP Contenidos" required>
+  
   <input name="entry.1718642695" placeholder="Folio" required>
   <input name="entry.448110065" placeholder="Visualizador" required>
   <input name="entry.461946160" placeholder="Oferta aplicada" required>
@@ -99,6 +107,41 @@
 
   <br><br>
   <button type="submit">Enviar</button>
+// pp contenidos 
+  
+
+<script>
+  // Función para actualizar PP Contenidos
+  function actualizarPPContenidos() {
+    const tenencia = document.getElementById("Tenencia").value.toLowerCase();
+    const resultado = document.getElementById("Resultado").value.toUpperCase();
+    const pp = document.getElementById("PPContenidos");
+
+    if (!pp) return;
+
+    if (resultado === "CONTENIDO") {
+      if (tenencia === "trio") {
+        pp.value = "2";
+      } else if (tenencia === "duo" || tenencia === "mono") {
+        pp.value = "1";
+      }
+    } else if (resultado === "BAJA PARCIAL") {
+      if (tenencia === "trio" || tenencia === "duo") {
+        pp.value = "1";
+      } else {
+        pp.value = "0";
+      }
+    } else {
+      pp.value = "0";
+    }
+  }
+
+  // Escuchadores de cambio
+  document.getElementById("Tenencia").addEventListener("change", actualizarPPContenidos);
+  document.getElementById("Resultado").addEventListener("change", actualizarPPContenidos);
+</script>
+
+  
 
 </form>
 
@@ -139,5 +182,6 @@
 
 </body> 
 </html>
+
 
 
