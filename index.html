@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Google</title>
+</head>
+<body>
+
+<h2>Registro</h2>
+
+<form id="googleForm">
+
+  <input name="entry.223399256" placeholder="Representante" required>
+  <input name="entry.263067344" placeholder="Tenencia" required>
+  <input name="entry.2021424275" placeholder="PP Contenidos" required>
+  <input name="entry.528607190" placeholder="ANI" required>
+  <input name="entry.938303002" placeholder="Suscripción" required>
+  <input name="entry.308640399" placeholder="Resultado" required>
+  <input name="entry.1265624613" placeholder="Contención" required>
+  <input name="entry.526710020" placeholder="Fecha" required>
+  <input name="entry.1718642695" placeholder="Folio" required>
+
+  <hr>
+
+  <input name="entry.448110065" placeholder="Visualizador" required>
+  <input name="entry.461946160" placeholder="Oferta aplicada" required>
+  <input name="entry.1321924343" placeholder="Observación">
+  <input name="entry.1187965590" placeholder="Mes" required>
+  <input name="entry.435477933" placeholder="¿Ofreciste?" required>
+  <input name="entry.217503159" placeholder="Motivo no oferta">
+  <input name="entry.795483787" placeholder="Producto" required>
+  <input name="entry.960725776" placeholder="Transferencia" required>
+  <input name="entry.1087208625" placeholder="Oferta máxima" required>
+
+  <br><br>
+  <button type="submit">Enviar</button>
+
+</form>
+
+<script>
+document.getElementById("googleForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  fetch(
+    "https://docs.google.com/forms/d/1Mlds1RQPtTiL2oqL0dtmKdilH2Y2X57KW1V3ADudOa8/formResponse",
+    {
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    }
+  );
+
+  alert("Datos enviados correctamente");
+  this.reset();
+});
+</script>
+
+</body>
+</html>
