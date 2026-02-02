@@ -63,21 +63,26 @@
     <option value="VELASQUEZ SENMACHE MIGUEL ANGEL">VELASQUEZ SENMACHE MIGUEL ANGEL</option>
     <option value="VELIZ CHOQUE JANETH JHOSELIE">VELIZ CHOQUE JANETH JHOSELIE</option>
   </select>
+  
   <select id="Tenencia" name="entry.263067344" required>
     <option value="">Selecciona</option>
-    <option value="Sí">Trio</option>
-    <option value="No">Duo</option>
-    <option value="No">Mono</option>
+    <option value="Trio">Trio</option>
+    <option value="Duo">Duo</option>
+    <option value="Mono">Mono</option>
   </select>
 
-  
- 
   <input name="entry.2021424275" placeholder="PP Contenidos" required>
   <input name="entry.528607190" placeholder="ANI" required>
   <input name="entry.938303002" placeholder="Suscripción" required>
-  <input name="entry.308640399" placeholder="Resultado" required>
-
-  <hr>
+  
+  <select id="Tenencia" name="entry.308640399" required>
+    <option value="">Selecciona</option>
+    <option value="Contenido">Contenido</option>
+    <option value="Baja Total">Baja Total</option>
+    <option value="Mono">Mono</option>
+  </select>
+ // SEGUNDO BLOQUE
+   <hr>
 
   <input name="entry.1265624613" placeholder="Contención" required>
   <input type="date" name="entry.526710020" required>
@@ -87,23 +92,50 @@
   <input name="entry.1321924343" placeholder="Observación">
 
   <hr>
-
-  <input name="entry.1187965590" placeholder="Mes" required>
-
-  <!-- OFRECISTE -->
-  <select id="ofreciste" name="entry.435477933" required>
-    <option value="">¿Ofreciste?</option>
-    <option value="Sí">Sí</option>
-    <option value="No">No</option>
-  </select>
+<input name="entry.1187965590" placeholder="Mes" required> 
+  <input name="entry.435477933" placeholder="¿Ofreciste?" required> 
+  <input name="entry.217503159" placeholder="Motivo no oferta"> 
+  <input name="entry.795483787" placeholder="Producto" required> 
+  <input name="entry.960725776" placeholder="Transferencia" required> 
+  <input name="entry.1087208625" placeholder="Oferta máxima" required>
 
   <div id="motivoBox" style="display:none;">
     <input id="motivoInput" name="entry.217503159" placeholder="Motivo no oferta">
   </div>
+// CODIGO DE CONTENICON
 
-  <input name="entry.795483787" placeholder="Producto" required>
-  <input name="entry.960725776" placeholder="Transferencia" required>
-  <input name="entry.1087208625" placeholder="Oferta máxima" required>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const resultado = document.getElementById("resultado");
+  const contencion = document.getElementById("contencion");
+
+  resultado.addEventListener("input", function() {
+    const val = resultado.value.trim().toUpperCase();
+
+    switch(val) {
+      case "CONSULTA":
+        contencion.value = "NO APLICA (Solo consultas)";
+        break;
+      case "CONTENIDO":
+        contencion.value = "SI";
+        break;
+      case "BAJA TOTAL":
+        contencion.value = "NO";
+        break;
+      case "BAJA PARCIAL":
+        contencion.value = "SI";
+        break;
+      default:
+        contencion.value = ""; // vacía si no coincide
+    }
+  });
+});
+</script>
+
+
+
+  
+ 
 
   <br><br>
   <button type="submit">Enviar</button>
@@ -146,6 +178,7 @@ document.getElementById("googleForm").addEventListener("submit", function(e) {
 
 </body>
 </html>
+
 
 
 
