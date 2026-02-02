@@ -104,37 +104,7 @@
   </div>
 // CODIGO DE CONTENICON
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const resultado = document.getElementById("resultado");
-  const contencion = document.getElementById("contencion");
 
-  resultado.addEventListener("input", function() {
-    const val = resultado.value.trim().toUpperCase();
-
-    switch(val) {
-      case "CONSULTA":
-        contencion.value = "NO APLICA (Solo consultas)";
-        break;
-      case "CONTENIDO":
-        contencion.value = "SI";
-        break;
-      case "BAJA TOTAL":
-        contencion.value = "NO";
-        break;
-      case "BAJA PARCIAL":
-        contencion.value = "SI";
-        break;
-      default:
-        contencion.value = ""; // vacía si no coincide
-    }
-  });
-});
-</script>
-
-
-
-  
  
 
   <br><br>
@@ -178,6 +148,7 @@ document.getElementById("googleForm").addEventListener("submit", function(e) {
 
 </body>
 </html>
+
 
 
 
