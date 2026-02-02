@@ -94,12 +94,21 @@
   
   <input name="entry.1718642695" placeholder="Folio" required>
   <input name="entry.448110065" placeholder="Visualizador" required>
-  <input name="entry.461946160" placeholder="Oferta aplicada" required>
+  <input name="entry.461946160" placeholder="Oferta_aplicada" required>
   <input name="entry.1321924343" placeholder="Observación">
 
   <hr>
-  <input name="entry.1187965590" placeholder="Mes" required> 
-  <input name="entry.435477933" placeholder="¿Ofreciste?" required> 
+  <input name="entry.1187965590" placeholder="Realizaste-Cambio-de-Plan" required> 
+  
+  <!-- OFRECISTE -->
+  <select id="Tenencia" name="entry.435477933" required>
+    <option value="">Selecciona</option>
+    <option value="Si">Si</option>
+    <option value="No">No</option>
+    <option value="No Aplica">No</option>
+  </select>
+
+  
   <input id="motivoInput" name="entry.217503159" placeholder="Motivo no oferta"> 
   <input name="entry.795483787" placeholder="Producto" required> 
   <input name="entry.960725776" placeholder="Transferencia" required> 
@@ -107,8 +116,8 @@
 
   <br><br>
   <button type="submit">Enviar</button>
-// pp contenidos 
-  
+
+   <!-- PP CONTENIDOS -->
 
 <script>
   // Función para actualizar PP Contenidos
@@ -141,14 +150,118 @@
   document.getElementById("Resultado").addEventListener("change", actualizarPPContenidos);
 </script>
 
+ <!-- ADHIERE VISUALIZADOR -->
   
+  <script>
+   // LOGICA DE CONTENCION SEGUN RESULTADO para campo contenido
+  document.getElementById("Resultado").addEventListener("change", function() {
+    const val = this.value.toUpperCase();
+    const Visualizador = document.getElementById("Contencion");
+
+    if (!Visualizador) return; // Seguridad: si no existe, salir
+
+    if (val === "CONSULTA" ||val === "BAJA TOTAL") {
+      Visualizador.value = "NO APLICA";
+    } else if (val === "CONTENIDO" || val === "BAJA PARCIAL") {
+      Visualizador.value = "SI";
+      Visualizador.value = "NO";
+      Visualizador.value = "Argumentario";
+      } else {
+      Visualizador.value = "";
+    }
+  });
+</script>
+  
+ <!-- OFERTA APLICADA -->
+  
+  <script>
+   // LOGICA DE CONTENCION SEGUN RESULTADO para campo contenido
+  document.getElementById("Visualizador").addEventListener("change", function() {
+    const val = this.value.toUpperCase();
+    const Oferta_aplicada = document.getElementById("Contencion");
+
+    if (!Oferta_aplicada) return; // Seguridad: si no existe, salir
+
+    if (val === "SI") {
+      Oferta_aplicada.value = "OFERTA 1";
+      Oferta_aplicada.value = "OFERTA 2";
+      Oferta_aplicada.value = "OFERTA 3";
+    } else if (val === "NO" ) {
+      Oferta_aplicada.value = "OFERTA NO ADHERIDA";
+    } else if (val === "Argumentario" ) {
+      Oferta_aplicada.value = "Argumentario";      
+    } else if (val === "BAJA TOTAL" ) {
+      Oferta_aplicada.value = "NO APLICA";
+    } else {
+      Oferta_aplicada.value = "";
+    }
+  });
+</script>
+
+  
+   <!-- OBSERVACION DE NO ADHERIRSE -->
+  
+  <script>
+   // LOGICA DE CONTENCION SEGUN RESULTADO para campo contenido
+  document.getElementById("Visualizador").addEventListener("change", function() {
+    const val = this.value.toUpperCase();
+    const Observación = document.getElementById("Contencion");
+
+    if (!Observación) return; // Seguridad: si no existe, salir
+
+    if (val === "OFERTA 1" ||val === "OFERTA 2"  ||val === "OFERTA 3") {
+      Observación.value = "CLIENTE CONFORME CON OFERTA DE VISUALIZADOR";
+    } else if (val === "ARGUMENTARIO" ) {
+      Observación.value = "ARGUMENTARIO";
+    } else if (val === "OFERTA NO ADHERIDA") {
+      Observación.value = "RETE - OFERTA NO SE ADAPTA A NECESIDAD DEL CLIENTE";
+      Observación.value = "N2 - OFERTA NO SE ADAPTA A NECESIDAD DEL CLIENTE";
+      Observación.value = "SOLICITA LA OFERTA MAS AGRESIVA";
+      Observación.value = "OFERTADOR NO ARROJA OPCIONES";
+    } else if (val === "NO APLICA BT") {
+      Observación.value = "RETE - OFERTA NO SE ADAPTA A NECESIDAD DEL CLIENTE";
+      Observación.value = "N2 - OFERTA NO SE ADAPTA A NECESIDAD DEL CLIENTE";
+      Observación.value = "SOLICITA LA OFERTA MAS AGRESIVA";
+      Observación.value = "OFERTADOR NO ARROJA OPCIONES";
+    } else if (val === "NO APLICA" ) {
+      Observación.value = "NO APLICA - SOLO CONSULTA";
+    } else {
+      Observación.value = "";
+    }
+  });
+</script>
+
+ <!-- MIGRACIOMN DE CAMBIO DE PLAN -->
+  
+  <script>
+   // LOGICA DE CONTENCION SEGUN RESULTADO para campo contenido
+  document.getElementById("Resultado").addEventListener("change", function() {
+    const val = this.value.toUpperCase();
+    const Realizaste-Cambio-de-Plan = document.getElementById("Contencion");
+
+    if (!Realizaste-Cambio-de-Plan) return; // Seguridad: si no existe, salir
+
+    if (val === "BAJA TOTAL" ||val === "CONSULTA" ) {
+      Realizaste-Cambio-de-Plan.value = "NO APLICA";
+    } else if (val === "CONTENIDO" ) {
+      Realizaste-Cambio-de-Plan.value = "MIGRA DOWN";
+      Realizaste-Cambio-de-Plan.value = "MIGRA UP";
+      Realizaste-Cambio-de-Plan.value = "NO APLICA";
+    } else if (val === "BAJA PARCIAL") {
+      Realizaste-Cambio-de-Plan.value = "BAJA PARCIAL";
+    } else {
+      Realizaste-Cambio-de-Plan.value = "";
+    }
+  });
+</script>
+  
+  
+   <!-- TENENCIA -->
 
 </form>
 
 <script>
-  // LOGICA DE CONTENCION SEGUN RESULTADO
-
-  // LOGICA DE CONTENCION SEGUN RESULTADO
+   // LOGICA DE CONTENCION SEGUN RESULTADO para campo contenido
   document.getElementById("Resultado").addEventListener("change", function() {
     const val = this.value.toUpperCase();
     const contencion = document.getElementById("Contencion");
@@ -182,6 +295,7 @@
 
 </body> 
 </html>
+
 
 
 
