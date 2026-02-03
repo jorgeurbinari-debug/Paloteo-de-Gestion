@@ -281,136 +281,211 @@ document.getElementById("Resultado").addEventListener("change", function () {
   
  <!-- OFERTA APLICADA -->
   
-  <script>
-   // LOGICA DE CONTENCION SEGUN RESULTADO para campo contenido
-  document.getElementById("Visualizador").addEventListener("change", function() {
-    const val = this.value.toUpperCase();
-    const Oferta_aplicada = document.getElementById("Oferta_aplicada");
+ <script>
+document.getElementById("Visualizador").addEventListener("change", function () {
+  const val = this.value.toUpperCase();
+  const oferta = document.getElementById("Oferta_aplicada");
 
-    if (!Oferta_aplicada) return; // Seguridad: si no existe, salir
+  if (!oferta) return;
 
-    if (val === "SI") {
-      Oferta_aplicada.value = "OFERTA 1";
-      Oferta_aplicada.value = "OFERTA 2";
-      Oferta_aplicada.value = "OFERTA 3";
-    } else if (val === "NO" ) {
-      Oferta_aplicada.value = "OFERTA NO ADHERIDA";
-    } else if (val === "Argumentario" ) {
-      Oferta_aplicada.value = "Argumentario";      
-    } else if (val === "BAJA TOTAL" ) {
-      Oferta_aplicada.value = "NO APLICA";
-    } else {
-      Oferta_aplicada.value = "";
-    }
-  });
+  // Limpiar opciones existentes
+  oferta.innerHTML = "";
+
+  if (val === "SI") {
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = "Selecciona";
+    oferta.appendChild(placeholder);
+
+    ["OFERTA 1", "OFERTA 2", "OFERTA 3"].forEach(op => {
+      const option = document.createElement("option");
+      option.value = op;
+      option.textContent = op;
+      oferta.appendChild(option);
+    });
+
+  } else if (val === "NO") {
+    const option = document.createElement("option");
+    option.value = "OFERTA NO ADHERIDA";
+    option.textContent = "OFERTA NO ADHERIDA";
+    oferta.appendChild(option);
+
+  } else if (val === "ARGUMENTARIO") {
+    const option = document.createElement("option");
+    option.value = "Argumentario";
+    option.textContent = "Argumentario";
+    oferta.appendChild(option);
+
+  } else if (val === "BAJA TOTAL") {
+    const option = document.createElement("option");
+    option.value = "NO APLICA";
+    option.textContent = "NO APLICA";
+    oferta.appendChild(option);
+
+  } else {
+    const option = document.createElement("option");
+    option.value = "";
+    option.textContent = "";
+    oferta.appendChild(option);
+  }
+});
 </script>
-
-
-  
 
   
    <!-- OBSERVACION DE NO ADHERIRSE -->
   
   <script>
-   // LOGICA DE CONTENCION SEGUN RESULTADO para campo contenido
-  document.getElementById("Visualizador").addEventListener("change", function() {
-    const val = this.value.toUpperCase();
-    const Observación = document.getElementById("Observación");
+document.getElementById("Oferta_aplicada").addEventListener("change", function() {
+  const val = this.value.toUpperCase();
+  const observacion = document.getElementById("Observación");
 
-    if (!Observación) return; // Seguridad: si no existe, salir
+  if (!observacion) return;
+  observacion.innerHTML = ""; // Limpiar opciones previas
 
-    if (val === "OFERTA 1" ||val === "OFERTA 2"  ||val === "OFERTA 3") {
-      Observación.value = "CLIENTE CONFORME CON OFERTA DE VISUALIZADOR";
-    } else if (val === "ARGUMENTARIO" ) {
-      Observación.value = "ARGUMENTARIO";
-    } else if (val === "OFERTA NO ADHERIDA") {
-      Observación.value = "RETE - OFERTA NO SE ADAPTA A NECESIDAD DEL CLIENTE";
-      Observación.value = "N2 - OFERTA NO SE ADAPTA A NECESIDAD DEL CLIENTE";
-      Observación.value = "SOLICITA LA OFERTA MAS AGRESIVA";
-      Observación.value = "OFERTADOR NO ARROJA OPCIONES";
-    } else if (val === "NO APLICA BT") {
-      Observación.value = "RETE - OFERTA NO SE ADAPTA A NECESIDAD DEL CLIENTE";
-      Observación.value = "N2 - OFERTA NO SE ADAPTA A NECESIDAD DEL CLIENTE";
-      Observación.value = "SOLICITA LA OFERTA MAS AGRESIVA";
-      Observación.value = "OFERTADOR NO ARROJA OPCIONES";
-    } else if (val === "NO APLICA" ) {
-      Observación.value = "NO APLICA - SOLO CONSULTA";
-    } else {
-      Observación.value = "";
-    }
-  });
+  const placeholder = document.createElement("option");
+  placeholder.value = "";
+  placeholder.textContent = "Selecciona";
+  observacion.appendChild(placeholder);
+
+  if (["OFERTA 1", "OFERTA 2", "OFERTA 3"].includes(val)) {
+    const opt = document.createElement("option");
+    opt.value = "CLIENTE CONFORME CON OFERTA DE VISUALIZADOR";
+    opt.textContent = opt.value;
+    observacion.appendChild(opt);
+  } else if (val === "ARGUMENTARIO") {
+    const opt = document.createElement("option");
+    opt.value = "ARGUMENTARIO";
+    opt.textContent = opt.value;
+    observacion.appendChild(opt);
+  } else if (val === "OFERTA NO ADHERIDA" || val === "NO APLICA BT") {
+    ["RETE - OFERTA NO SE ADAPTA A NECESIDAD DEL CLIENTE",
+     "N2 - OFERTA NO SE ADAPTA A NECESIDAD DEL CLIENTE",
+     "SOLICITA LA OFERTA MAS AGRESIVA",
+     "OFERTADOR NO ARROJA OPCIONES"].forEach(v => {
+       const opt = document.createElement("option");
+       opt.value = v;
+       opt.textContent = v;
+       observacion.appendChild(opt);
+     });
+  } else if (val === "NO APLICA") {
+    const opt = document.createElement("option");
+    opt.value = "NO APLICA - SOLO CONSULTA";
+    opt.textContent = opt.value;
+    observacion.appendChild(opt);
+  }
+});
 </script>
+
 
  <!-- MIGRACIOMN DE CAMBIO DE PLAN -->
   
   <script>
-   // LOGICA DE CONTENCION SEGUN RESULTADO para campo contenido
-  document.getElementById("Resultado").addEventListener("change", function() {
-    const val = this.value.toUpperCase();
-    const Realizaste-Cambio-de-Plan = document.getElementById("Realizaste-Cambio-de-Plan");
+document.getElementById("Resultado").addEventListener("change", function() {
+  const val = this.value.toUpperCase();
+  const campo = document.getElementById("Realizaste_Cambio_de_Plan");
 
-    if (!Realizaste-Cambio-de-Plan) return; // Seguridad: si no existe, salir
+  if (!campo) return;
+  campo.innerHTML = "";
 
-    if (val === "BAJA TOTAL" ||val === "CONSULTA" ) {
-      Realizaste-Cambio-de-Plan.value = "NO APLICA";
-    } else if (val === "CONTENIDO" ) {
-      Realizaste-Cambio-de-Plan.value = "MIGRA DOWN";
-      Realizaste-Cambio-de-Plan.value = "MIGRA UP";
-      Realizaste-Cambio-de-Plan.value = "NO APLICA";
-    } else if (val === "BAJA PARCIAL") {
-      Realizaste-Cambio-de-Plan.value = "BAJA PARCIAL";
-    } else {
-      Realizaste-Cambio-de-Plan.value = "";
-    }
-  });
+  const placeholder = document.createElement("option");
+  placeholder.value = "";
+  placeholder.textContent = "Selecciona";
+  campo.appendChild(placeholder);
+
+  if (["BAJA TOTAL", "CONSULTA"].includes(val)) {
+    const opt = document.createElement("option");
+    opt.value = "NO APLICA";
+    opt.textContent = opt.value;
+    campo.appendChild(opt);
+  } else if (val === "CONTENIDO") {
+    ["MIGRA DOWN", "MIGRA UP", "NO APLICA"].forEach(v => {
+      const opt = document.createElement("option");
+      opt.value = v;
+      opt.textContent = v;
+      campo.appendChild(opt);
+    });
+  } else if (val === "BAJA PARCIAL") {
+    const opt = document.createElement("option");
+    opt.value = "BAJA PARCIAL";
+    opt.textContent = opt.value;
+    campo.appendChild(opt);
+  }
+});
 </script>
+
 
 
    <!-- MOTIVO DE NO OFERTA -->
     <script>
-   // LOGICA DE CONTENCION SEGUN RESULTADO para campo contenido
-  document.getElementById("¿Ofreciste?").addEventListener("change", function() {
-    const val = this.value.toUpperCase();
-    const Motivo-no-oferta = document.getElementById("Motivo-no-oferta");
+document.getElementById("Ofreciste").addEventListener("change", function() {
+  const val = this.value.toUpperCase();
+  const motivo = document.getElementById("Motivo_no_oferta");
 
-    if (!Motivo-no-oferta) return; // Seguridad: si no existe, salir
+  if (!motivo) return;
+  motivo.innerHTML = "";
 
-    if (val === "SI" || val === "NO APLICA") {
-      Motivo-no-oferta.value = "NO APLICA";
-    } else if (val === "NO" ) {
-      Motivo-no-oferta.value = "CLIENTE";   
-      Motivo-no-oferta.value = "VMO"; 
-      Motivo-no-oferta.value = "EXPERIENCIA ANTERIOR"; 
-    } else {
-      Motivo-no-oferta.value = "";
-    }
-  });
+  const placeholder = document.createElement("option");
+  placeholder.value = "";
+  placeholder.textContent = "Selecciona";
+  motivo.appendChild(placeholder);
+
+  if (["SI"].includes(val)) {
+    ["FIBRA","ALTA MÓVIL","PORTABILIDAD MÓVIL","FIBRA + MÓVIL","RECAMBIO","FIBRA + RECAMBIO","MOVIL + RECAMBIO"]
+      .forEach(v => {
+        const opt = document.createElement("option");
+        opt.value = v;
+        opt.textContent = v;
+        motivo.appendChild(opt);
+      });
+  } else if (["NO"].includes(val)) {
+    ["CLIENTE","VMO","EXPERIENCIA ANTERIOR"].forEach(v => {
+      const opt = document.createElement("option");
+      opt.value = v;
+      opt.textContent = v;
+      motivo.appendChild(opt);
+    });
+  } else if (["NO APLICA"].includes(val)) {
+    const opt = document.createElement("option");
+    opt.value = "NO APLICA";
+    opt.textContent = opt.value;
+    motivo.appendChild(opt);
+  }
+});
 </script>
+
 
    <!-- PRODUCTO OFRECIDO -->
-    <script>
-   // LOGICA DE CONTENCION SEGUN RESULTADO para campo contenido
-  document.getElementById("¿Ofreciste?").addEventListener("change", function() {
-    const val = this.value.toUpperCase();
-    const Motivo-no-oferta = document.getElementById("Motivo-no-oferta");
+   <script>
+document.getElementById("Ofreciste").addEventListener("change", function() {
+  const val = this.value.toUpperCase();
+  const producto = document.getElementById("Motivo_no_oferta");
 
-    if (!Motivo-no-oferta) return; // Seguridad: si no existe, salir
+  if (!producto) return;
+  producto.innerHTML = ""; // Limpiar opciones previas
 
-    if (val === "NO" || val === "NO APLICA") {
-      Motivo-no-oferta.value = "NO APLICA";
-    } else if (val === "SI" ) {
-      Motivo-no-oferta.value = "FIBRA";   
-      Motivo-no-oferta.value = "ALTA MÓVIL"; 
-      Motivo-no-oferta.value = "PORTABILIDAD MÓVIL"; 
-      Motivo-no-oferta.value = "FIBRA + MÓVIL"; 
-      Motivo-no-oferta.value = "RECAMBIO"; 
-      Motivo-no-oferta.value = "FIBRA + RECAMBIO"; 
-      Motivo-no-oferta.value = "MOVIL + RECAMBIO"; 
-    } else {
-      Motivo-no-oferta.value = "";
-    }
-  });
+  // Opción placeholder
+  const placeholder = document.createElement("option");
+  placeholder.value = "";
+  placeholder.textContent = "Selecciona";
+  producto.appendChild(placeholder);
+
+  if (val === "SI") {
+    ["FIBRA","ALTA MÓVIL","PORTABILIDAD MÓVIL","FIBRA + MÓVIL","RECAMBIO","FIBRA + RECAMBIO","MOVIL + RECAMBIO"]
+      .forEach(v => {
+        const opt = document.createElement("option");
+        opt.value = v;
+        opt.textContent = v;
+        producto.appendChild(opt);
+      });
+  } else if (val === "NO" || val === "NO APLICA") {
+    const opt = document.createElement("option");
+    opt.value = "NO APLICA";
+    opt.textContent = opt.value;
+    producto.appendChild(opt);
+  }
+});
 </script>
+
   
  
   
@@ -418,24 +493,43 @@ document.getElementById("Resultado").addEventListener("change", function () {
 
 </form>
 
-<script>
-   // LOGICA DE CONTENCION SEGUN RESULTADO para campo contenido
-  document.getElementById("Resultado").addEventListener("change", function() {
-    const val = this.value.toUpperCase();
-    const contencion = document.getElementById("Contencion");
+<<script>
+document.getElementById("Resultado").addEventListener("change", function() {
+  const val = this.value.toUpperCase();
+  const contencion = document.getElementById("Contencion");
 
-    if (!contencion) return; // Seguridad: si no existe, salir
+  if (!contencion) return;
 
-    if (val === "CONSULTA") {
-      contencion.value = "NO APLICA (Solo consultas)";
-    } else if (val === "CONTENIDO" || val === "BAJA PARCIAL") {
-      contencion.value = "SI";
-    } else if (val === "BAJA TOTAL") {
-      contencion.value = "NO";
-    } else {
-      contencion.value = "";
-    }
-  });
+  // Limpiar opciones anteriores
+  contencion.innerHTML = "";
+
+  // Opción placeholder
+  const placeholder = document.createElement("option");
+  placeholder.value = "";
+  placeholder.textContent = "Selecciona";
+  contencion.appendChild(placeholder);
+
+  if (val === "CONSULTA") {
+    const opt = document.createElement("option");
+    opt.value = "NO APLICA (Solo consultas)";
+    opt.textContent = opt.value;
+    contencion.appendChild(opt);
+  } else if (val === "CONTENIDO" || val === "BAJA PARCIAL") {
+    ["SI"].forEach(v => {
+      const opt = document.createElement("option");
+      opt.value = v;
+      opt.textContent = v;
+      contencion.appendChild(opt);
+    });
+  } else if (val === "BAJA TOTAL") {
+    const opt = document.createElement("option");
+    opt.value = "NO";
+    opt.textContent = opt.value;
+    contencion.appendChild(opt);
+  }
+});
+
+
 
 
 
@@ -453,6 +547,7 @@ document.getElementById("Resultado").addEventListener("change", function () {
 
 </body> 
 </html>
+
 
 
 
