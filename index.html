@@ -82,8 +82,12 @@
 
   <!-- SEGUNDO BLOQUE -->
   <hr>
-  <input id="Contencion" name="entry.1265624613" placeholder="Contención" required readonly>
-
+  
+  <!-- Contención -->
+ <select id="Contención" name="entry.1265624613" required>
+  <option value="">Selecciona</option>
+</select>
+  
     <!-- Transferencia a isla de validacion -->
   <select id="Tenencia" name="entry.526710020" required>
     <option value="">Selecciona</option>
@@ -99,16 +103,25 @@
   <option value="">Selecciona</option>
 </select>
   
- 
+ <!--  Oferta aplica -->
+ <select id="Oferta_aplicada" name="entry.461946160" required>
+  <option value="">Selecciona</option>
+</select>
   
+  <!--  Observación-->
+ <select id="Observación" name="entry.1321924343" required>
+  <option value="">Selecciona</option>
+</select>
   
-  <input id="Oferta_aplicada" name="entry.461946160" placeholder="Oferta_aplicada" required readonly>
-  <input id="Observación" name="entry.1321924343" placeholder="Observación" required readonly>
  
   <!-- TERCER BLOQUE -->
   <hr>
-  <input id="Realizaste_Cambio_de_Plan" name="entry.1187965590" placeholder="Realizaste_Cambio_de_Plan"> 
+
   
+ <select id="Realizaste_Cambio_de_Plan" name="entry.1187965590" required>
+  <option value="">Selecciona</option>
+  </select>
+    
   <!-- OFRECISTE -->
   <select id="Ofreciste" name="entry.435477933" required>
     <option value="">Selecciona</option>
@@ -117,9 +130,14 @@
     <option value="No Aplica">No</option>
   </select>
 
-  
-  <input id="Motivo_no_oferta" name="entry.217503159" placeholder="Motivo_no_oferta"> 
-  <input id="Producto" name="entry.795483787" placeholder="Producto"> 
+   <select id="Motivo_no_oferta" name="entry.217503159" required>
+  <option value="">Selecciona</option>
+  </select>
+
+    <select id="Producto" name="entry.795483787" required>
+  <option value="">Selecciona</option>
+  </select>
+    
   
 
    <!-- MOTIVO DE BAJA -->
@@ -287,6 +305,9 @@ document.getElementById("Resultado").addEventListener("change", function () {
   });
 </script>
 
+
+  
+
   
    <!-- OBSERVACION DE NO ADHERIRSE -->
   
@@ -432,6 +453,7 @@ document.getElementById("Resultado").addEventListener("change", function () {
 
 </body> 
 </html>
+
 
 
 
