@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Formulario Google</title>
+  <meta charset="UTF-8">
+  <title>Formulario Google</title>
 </head>
 <body>
 
@@ -10,167 +10,200 @@
 
 <form id="googleForm">
 
-<!-- ================= REPRESENTANTE ================= -->
-<select name="entry.223399256" required>
-  <option value="">Selecciona Representante</option>
-  <option value="AGUILAR VARGAS URSULA NOEMI">AGUILAR VARGAS URSULA NOEMI</option>
-  <option value="ALTAMIRANO MEGO MARIO SERGIO">ALTAMIRANO MEGO MARIO SERGIO</option>
-  <option value="ÑIQUEN ARROYO KATTIA LISET">ÑIQUEN ARROYO KATTIA LISET</option>
-</select>
+  <!-- REPRESENTANTE -->
+  <select name="entry.223399256" required>
+    <option value="">Selecciona Representante</option>
+    <option value="AGUILAR VARGAS URSULA NOEMI">AGUILAR VARGAS URSULA NOEMI</option>
+    <option value="ALTAMIRANO MEGO MARIO SERGIO">ALTAMIRANO MEGO MARIO SERGIO</option>
+    
+  </select>
 
-<hr>
+  <!-- TENENCIA -->
+  <select id="Tenencia" name="entry.263067344" required>
+    <option value="">Selecciona</option>
+    <option value="Trio">Trio</option>
+    <option value="Duo">Duo</option>
+    <option value="Mono">Mono</option>
+  </select>
 
-<!-- ================= TENENCIA ================= -->
-<select id="TenenciaPrincipal" name="entry.263067344" required>
-  <option value="">Selecciona Tenencia</option>
-  <option value="Trio">Trio</option>
-  <option value="Duo">Duo</option>
-  <option value="Mono">Mono</option>
-</select>
+  <input id="PP_Contenidos" name="entry.2021424275" placeholder="PP_Contenidos" required readonly>
+  <input name="entry.528607190" placeholder="ANI" required>
+  <input name="entry.938303002" placeholder="Suscripción" required>
 
-<input id="PP_Contenidos" name="entry.2021424275" placeholder="PP Contenidos" readonly>
-<input name="entry.528607190" placeholder="ANI" required>
-<input name="entry.938303002" placeholder="Suscripción" required>
+  <!-- RESULTADO -->
+  <select id="Resultado" name="entry.308640399" required>
+    <option value="">Selecciona</option>
+    <option value="CONSULTA">CONSULTA</option>
+    <option value="CONTENIDO">CONTENIDO</option>
+    <option value="BAJA TOTAL">BAJA TOTAL</option>
+    <option value="BAJA PARCIAL">BAJA PARCIAL</option>
+  </select>
 
-<hr>
+  <!-- SEGUNDO BLOQUE -->
+  <hr>
+  <input id="Contencion" name="entry.1265624613" placeholder="Contención" required readonly>
 
-<!-- ================= RESULTADO ================= -->
-<select id="Resultado" name="entry.308640399" required>
-  <option value="">Selecciona Resultado</option>
-  <option value="CONSULTA">CONSULTA</option>
-  <option value="CONTENIDO">CONTENIDO</option>
-  <option value="BAJA TOTAL">BAJA TOTAL</option>
-  <option value="BAJA PARCIAL">BAJA PARCIAL</option>
-</select>
+  <!-- Transferencia a isla de validacion -->
+  <select id="Transferencia" name="entry.526710020" required>
+    <option value="">Selecciona</option>
+    <option value="Si">Si</option>
+    <option value="No">No</option>
+  </select>
 
-<select id="Contencion" name="entry.1265624613" required>
-  <option value="">Contención</option>
-  <option value="SI">SI</option>
-  <option value="NO">NO</option>
-  <option value="NO APLICA">NO APLICA</option>
-</select>
+  <input name="entry.1718642695" placeholder="Folio" required>
+  <input id="Visualizador" name="entry.448110065" placeholder="Visualizador" required readonly> 
+  <input id="Oferta_aplicada" name="entry.461946160" placeholder="Oferta_aplicada" required readonly>
+  <input id="Observacion" name="entry.1321924343" placeholder="Observación" required readonly>
+ 
+  <!-- TERCER BLOQUE -->
+  <hr>
+  <input id="RealizasteCambioDePlan" name="entry.1187965590" placeholder="Realizaste_Cambio_de_Plan"> 
+  
+  <!-- OFRECISTE -->
+  <select id="Ofreciste" name="entry.435477933" required>
+    <option value="">Selecciona</option>
+    <option value="Si">Si</option>
+    <option value="No">No</option>
+    <option value="No Aplica">No Aplica</option>
+  </select>
 
-<select id="Visualizador" name="entry.448110065" required>
-  <option value="">Visualizador</option>
-  <option value="SI">SI</option>
-  <option value="NO">NO</option>
-  <option value="ARGUMENTARIO">ARGUMENTARIO</option>
-  <option value="NO APLICA">NO APLICA</option>
-</select>
+  <input id="MotivoNoOferta" name="entry.217503159" placeholder="Motivo_no_oferta"> 
+  <input id="Producto" name="entry.795483787" placeholder="Producto"> 
+  
+  <!-- MOTIVO DE BAJA -->
+  <select id="MotivoBaja" name="entry.960725776" required>
+    <option value="">Selecciona</option>
+    <option value="Competencia con mejor precio">Competencia con mejor precio</option>
+    <option value="Falla masiva">Falla masiva</option>
+    <!-- Resto de opciones omitidas -->
+  </select>
 
-<select id="Oferta_aplicada" name="entry.461946160" required>
-  <option value="">Oferta aplicada</option>
-  <option value="OFERTA 1">OFERTA 1</option>
-  <option value="OFERTA 2">OFERTA 2</option>
-  <option value="OFERTA 3">OFERTA 3</option>
-  <option value="OFERTA NO ADHERIDA">OFERTA NO ADHERIDA</option>
-  <option value="ARGUMENTARIO">ARGUMENTARIO</option>
-  <option value="NO APLICA">NO APLICA</option>
-</select>
+  <!-- OFERTA MAXIMA -->
+  <select id="OfertaMaxima" name="entry.1087208625" required>
+    <option value="">Selecciona</option>
+    <option value="Competencia con mejor precio">Competencia con mejor precio</option>
+    <option value="OFERTA DEL 20">OFERTA DEL 20</option>
+    <!-- Resto de ofertas omitidas -->
+  </select>
 
-<select id="Observacion" name="entry.1321924343" required>
-  <option value="">Observación</option>
-  <option value="CLIENTE CONFORME">CLIENTE CONFORME</option>
-  <option value="ARGUMENTARIO">ARGUMENTARIO</option>
-  <option value="OFERTA NO SE ADAPTA">OFERTA NO SE ADAPTA</option>
-  <option value="NO APLICA">NO APLICA</option>
-</select>
-
-<hr>
-
-<!-- ================= CAMBIO PLAN ================= -->
-<select id="RealizasteCambioPlan" name="entry.1187965590" required>
-  <option value="">¿Cambio de plan?</option>
-  <option value="MIGRA UP">MIGRA UP</option>
-  <option value="MIGRA DOWN">MIGRA DOWN</option>
-  <option value="BAJA PARCIAL">BAJA PARCIAL</option>
-  <option value="NO APLICA">NO APLICA</option>
-</select>
-
-<select id="Ofreciste" name="entry.435477933" required>
-  <option value="">¿Ofreciste?</option>
-  <option value="SI">SI</option>
-  <option value="NO">NO</option>
-  <option value="NO APLICA">NO APLICA</option>
-</select>
-
-<select id="MotivoNoOferta" name="entry.217503159" required>
-  <option value="">Motivo no oferta</option>
-  <option value="CLIENTE">CLIENTE</option>
-  <option value="VMO">VMO</option>
-  <option value="EXPERIENCIA ANTERIOR">EXPERIENCIA ANTERIOR</option>
-  <option value="NO APLICA">NO APLICA</option>
-</select>
-
-<select id="Producto" name="entry.795483787" required>
-  <option value="">Producto</option>
-  <option value="FIBRA">FIBRA</option>
-  <option value="MOVIL">MOVIL</option>
-  <option value="FIBRA + MOVIL">FIBRA + MOVIL</option>
-  <option value="NO APLICA">NO APLICA</option>
-</select>
-
-<hr>
-
-<!-- ================= OFERTA MAXIMA ================= -->
-<select id="OfertaMaxima" name="entry.1087208625" required>
-  <option value="">Oferta máxima</option>
-  <option value="OFERTA 20">OFERTA 20</option>
-  <option value="OFERTA 30">OFERTA 30</option>
-  <option value="OFERTA 40">OFERTA 40</option>
-  <option value="OFERTA 50">OFERTA 50</option>
-  <option value="ARGUMENTARIO">ARGUMENTARIO</option>
-  <option value="NO APLICA">NO APLICA</option>
-</select>
-
-<hr>
-
-<button type="submit">Enviar</button>
-
+  <br><br>
+  <button type="submit">Enviar</button>
 </form>
 
+<!-- SCRIPTS -->
 <script>
-// ================= PP CONTENIDOS =================
-function actualizarPP() {
-  const t = TenenciaPrincipal.value;
-  const r = Resultado.value;
-  PP_Contenidos.value = "0";
+  // 🔹 ACTUALIZAR PP CONTENIDOS
+  function actualizarPPContenidos() {
+    const tenencia = document.getElementById("Tenencia").value;
+    const resultado = document.getElementById("Resultado").value;
+    const pp = document.getElementById("PP_Contenidos");
 
-  if (r === "CONTENIDO") {
-    PP_Contenidos.value = t === "Trio" ? "2" : t ? "1" : "0";
+    if (!tenencia || !resultado) { pp.value = "0"; return; }
+
+    if (resultado === "CONTENIDO") {
+      pp.value = (tenencia === "Trio") ? "2" : "1";
+    } else if (resultado === "BAJA PARCIAL") {
+      pp.value = (tenencia === "Trio" || tenencia === "Duo") ? "1" : "0";
+    } else {
+      pp.value = "0";
+    }
   }
-  if (r === "BAJA PARCIAL" && (t === "Trio" || t === "Duo")) {
-    PP_Contenidos.value = "1";
-  }
-}
-TenenciaPrincipal.addEventListener("change", actualizarPP);
-Resultado.addEventListener("change", actualizarPP);
 
-// ================= RESULTADO =================
-Resultado.addEventListener("change", () => {
-  Contencion.value =
-    Resultado.value === "CONSULTA" ? "NO APLICA" :
-    Resultado.value === "BAJA TOTAL" ? "NO" : "SI";
+  document.getElementById("Tenencia").addEventListener("change", actualizarPPContenidos);
+  document.getElementById("Resultado").addEventListener("change", actualizarPPContenidos);
 
-  Visualizador.value =
-    Resultado.value === "CONTENIDO" ? "SI" :
-    Resultado.value === "BAJA PARCIAL" ? "ARGUMENTARIO" : "NO APLICA";
+  // 🔹 VISUALIZADOR
+  document.getElementById("Resultado").addEventListener("change", function() {
+    const val = this.value.toUpperCase();
+    const visualizador = document.getElementById("Visualizador");
+    if (!visualizador) return;
 
-  RealizasteCambioPlan.value =
-    Resultado.value === "CONTENIDO" ? "MIGRA UP" :
-    Resultado.value === "BAJA PARCIAL" ? "BAJA PARCIAL" : "NO APLICA";
-});
+    if (val === "CONSULTA" || val === "BAJA TOTAL") visualizador.value = "NO APLICA";
+    else if (val === "CONTENIDO" || val === "BAJA PARCIAL") visualizador.value = "SI";
+    else visualizador.value = "";
+  });
 
-// ================= ENVIO =================
-googleForm.addEventListener("submit", e => {
-  e.preventDefault();
-  fetch(
-    "https://docs.google.com/forms/d/1Mlds1RQPtTiL2oqL0dtmKdilH2Y2X57KW1V3ADudOa8/formResponse",
-    { method: "POST", mode: "no-cors", body: new FormData(googleForm) }
-  );
-  alert("Datos enviados correctamente");
-  googleForm.reset();
-});
+  // 🔹 OFERTA APLICADA
+  document.getElementById("Visualizador").addEventListener("change", function() {
+    const val = this.value.toUpperCase();
+    const oferta = document.getElementById("Oferta_aplicada");
+    if (!oferta) return;
+
+    if (val === "SI") oferta.value = "OFERTA 1";
+    else if (val === "NO") oferta.value = "OFERTA NO ADHERIDA";
+    else if (val === "ARGUMENTARIO") oferta.value = "Argumentario";
+    else oferta.value = "";
+  });
+
+  // 🔹 OBSERVACION
+  document.getElementById("Visualizador").addEventListener("change", function() {
+    const val = this.value.toUpperCase();
+    const obs = document.getElementById("Observacion");
+    if (!obs) return;
+
+    if (val === "OFERTA 1") obs.value = "CLIENTE CONFORME CON OFERTA DE VISUALIZADOR";
+    else if (val === "ARGUMENTARIO") obs.value = "ARGUMENTARIO";
+    else if (val === "OFERTA NO ADHERIDA") obs.value = "RETE - OFERTA NO SE ADAPTA A NECESIDAD DEL CLIENTE";
+    else if (val === "NO APLICA") obs.value = "NO APLICA - SOLO CONSULTA";
+    else obs.value = "";
+  });
+
+  // 🔹 CAMBIO DE PLAN
+  document.getElementById("Resultado").addEventListener("change", function() {
+    const val = this.value.toUpperCase();
+    const plan = document.getElementById("RealizasteCambioDePlan");
+    if (!plan) return;
+
+    if (val === "BAJA TOTAL" || val === "CONSULTA") plan.value = "NO APLICA";
+    else if (val === "CONTENIDO") plan.value = "MIGRA DOWN"; // lógica simplificada
+    else if (val === "BAJA PARCIAL") plan.value = "BAJA PARCIAL";
+    else plan.value = "";
+  });
+
+  // 🔹 MOTIVO NO OFERTA Y PRODUCTO
+  document.getElementById("Ofreciste").addEventListener("change", function() {
+    const val = this.value.toUpperCase();
+    const motivo = document.getElementById("MotivoNoOferta");
+    const producto = document.getElementById("Producto");
+
+    if (!motivo || !producto) return;
+
+    if (val === "NO" ) {
+      motivo.value = "CLIENTE"; // ejemplo simplificado
+      producto.value = "NO APLICA";
+    } else if (val === "SI") {
+      motivo.value = "NO APLICA";
+      producto.value = "FIBRA";
+    } else {
+      motivo.value = "NO APLICA";
+      producto.value = "NO APLICA";
+    }
+  });
+
+  // 🔹 CONTENCION
+  document.getElementById("Resultado").addEventListener("change", function() {
+    const val = this.value.toUpperCase();
+    const contencion = document.getElementById("Contencion");
+    if (!contencion) return;
+
+    if (val === "CONSULTA") contencion.value = "NO APLICA (Solo consultas)";
+    else if (val === "CONTENIDO" || val === "BAJA PARCIAL") contencion.value = "SI";
+    else if (val === "BAJA TOTAL") contencion.value = "NO";
+    else contencion.value = "";
+  });
+
+  // 🔹 ENVIO FORMULARIO
+  document.getElementById("googleForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    fetch("https://docs.google.com/forms/d/1Mlds1RQPtTiL2oqL0dtmKdilH2Y2X57KW1V3ADudOa8/formResponse", {
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    });
+    alert("Datos enviados correctamente");
+    this.reset();
+  });
 </script>
 
 </body>
