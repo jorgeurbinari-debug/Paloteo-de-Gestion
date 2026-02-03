@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Formulario Google</title>
+  <!-- Librería para leer bien el CSV de Google -->
+<guión src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></guión>
 
 <style>
 body{
@@ -328,6 +330,15 @@ const Motivo_no_oferta = document.getElementById("Motivo_no_oferta");
 const Producto = document.getElementById("Producto");
 const Contencion = document.getElementById("Contencion");
 
+//Cuando cambias el representante, carga el resumen automáticamente
+document.querySelector('select[name="entry.223399256"]')
+  .addEventListener("change", function () {
+    if (this.value) {
+      cargarResumenRepresentante(this.value);
+    }
+  });
+
+
 // PP Contenidos
 function actualizarPPContenidos() {
   const t = Tenencia.value;
@@ -399,46 +410,21 @@ Ofreciste.addEventListener("change", function() {
   }
 });
 // nuevo pegado
- async function cargarResumenRepresentante(nombreRep) {
+async function cargarResumenRepresentante(nombreRep) {
   const urlCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ-eXRlbicS3iowX7BRDL4x-dD_7rjRPjRXCx37YwHRmv-f10K6LJvbJl7LR1TPuxg-ZDtk_B5WOWZI/pub?output=csv";
 
   const resp = await fetch(urlCSV);
   const csvText = await resp.text();
 
-  // ✅ Parseador CSV REAL
-  function parseCSV(text) {
-    const rows = [];
-    let row = [];
-    let current = "";
-    let insideQuotes = false;
+  const resultado = Papa.parse(csvText, {
+    header: true,
+    skipEmptyLines: true
+  });
 
-    for (let char of text) {
-      if (char === '"') {
-        insideQuotes = !insideQuotes;
-      } else if (char === ',' && !insideQuotes) {
-        row.push(current);
-        current = "";
-      } else if (char === '\n' && !insideQuotes) {
-        row.push(current);
-        rows.push(row);
-        row = [];
-        current = "";
-      } else {
-        current += char;
-      }
-    }
-    row.push(current);
-    rows.push(row);
-    return rows;
-  }
+  const datos = resultado.data;
 
-  const filas = parseCSV(csvText);
-  const encabezados = filas[0].map(h => h.trim());
-
-  const colRep = encabezados.indexOf("REPRESENTANTE");
-
-  const filasRep = filas.filter((fila, i) =>
-    i > 0 && fila[colRep] && fila[colRep].trim() === nombreRep.trim()
+  const filasRep = datos.filter(f =>
+    (f["REPRESENTANTE"] || "").trim().toUpperCase() === nombreRep.trim().toUpperCase()
   );
 
   if (filasRep.length === 0) {
@@ -447,12 +433,8 @@ Ofreciste.addEventListener("change", function() {
     return;
   }
 
-  function sumar(colNombre) {
-    const col = encabezados.indexOf(colNombre);
-    return filasRep.reduce((acc, f) => {
-      const val = parseInt(f[col]);
-      return acc + (isNaN(val) ? 0 : val);
-    }, 0);
+  function sumar(col) {
+    return filasRep.reduce((acc, f) => acc + (parseInt(f[col]) || 0), 0);
   }
 
   document.getElementById("resumenContenido").innerHTML = `
@@ -466,7 +448,6 @@ Ofreciste.addEventListener("change", function() {
     <p><b>ARGUMENTARIOS:</b> ${sumar("Q DE ARGUMENTARIOS")}</p>
   `;
 }
-
 
 
   
@@ -512,6 +493,7 @@ cargarResumenRepresentante(rep);
 
 </body>
 </html>
+
 
 
 
