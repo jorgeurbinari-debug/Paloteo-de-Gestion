@@ -308,7 +308,7 @@ Oferta_aplicada.addEventListener("change", function() {
 Ofreciste.addEventListener("change", function() {
   const val = this.value.toUpperCase();
   if (val === "SI") {
-    setOptions(Motivo_no_oferta, ["FIBRA","ALTA MÓVIL","PORTABILIDAD MÓVIL","FIBRA + MÓVIL","RECAMBIO","FIBRA + RECAMBIO","MOVIL + RECAMBIO"]);
+    setOptions(Motivo_no_oferta, ["NO APLICA");
     setOptions(Producto, ["FIBRA","ALTA MÓVIL","PORTABILIDAD MÓVIL","FIBRA + MÓVIL","RECAMBIO","FIBRA + RECAMBIO","MOVIL + RECAMBIO"]);
   } else if (val === "NO") {
     setOptions(Motivo_no_oferta, ["CLIENTE","VMO","EXPERIENCIA ANTERIOR"]);
@@ -349,3 +349,4 @@ document.getElementById("googleForm").addEventListener("submit", function(e) {
 
 </body>
 </html>
+
