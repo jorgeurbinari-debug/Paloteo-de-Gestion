@@ -411,7 +411,8 @@ Ofreciste.addEventListener("change", function() {
 });
 // nuevo pegado
 async function cargarResumenRepresentante(nombreRep) {
-  const urlCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ-eXRlbicS3iowX7BRDL4x-dD_7rjRPjRXCx37YwHRmv-f10K6LJvbJl7LR1TPuxg-ZDtk_B5WOWZI/pub?output=csv";
+  const response = await fetch("https://script.google.com/d/1SHpRGIR3r-GrV0SJyeIRFtcQsmZy1cCSWgyG_t-L20D-cMJVUwQ9nxEn/edit?usp=sharing");
+
 
   const resp = await fetch(urlCSV);
   const csvText = await resp.text();
@@ -493,6 +494,7 @@ cargarResumenRepresentante(rep);
 
 </body>
 </html>
+
 
 
 
