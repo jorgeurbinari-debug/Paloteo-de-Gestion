@@ -99,37 +99,7 @@
   <option value="">Selecciona</option>
 </select>
   
- <script>
-document.getElementById("Resultado").addEventListener("change", function () {
-  const val = this.value.toUpperCase();
-  const visualizador = document.getElementById("Visualizador");
-
-  if (!visualizador) return;
-
-  // Limpiar opciones
-  visualizador.innerHTML = "";
-
-  if (val === "CONSULTA" || val === "BAJA TOTAL") {
-    const option = document.createElement("option");
-    option.value = "NO APLICA";
-    option.textContent = "NO APLICA";
-    visualizador.appendChild(option);
-
-  } else if (val === "CONTENIDO" || val === "BAJA PARCIAL") {
-    const placeholder = document.createElement("option");
-    placeholder.value = "";
-    placeholder.textContent = "Selecciona";
-    visualizador.appendChild(placeholder);
-
-    ["SI", "NO", "Argumentario"].forEach(valor => {
-      const option = document.createElement("option");
-      option.value = valor;
-      option.textContent = valor;
-      visualizador.appendChild(option);
-    });
-  }
-});
-</script>
+ 
   
   
   <input id="Oferta_aplicada" name="entry.461946160" placeholder="Oferta_aplicada" required readonly>
@@ -462,6 +432,7 @@ document.getElementById("Resultado").addEventListener("change", function () {
 
 </body> 
 </html>
+
 
 
 
