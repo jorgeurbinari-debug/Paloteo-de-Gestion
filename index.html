@@ -67,7 +67,7 @@
     <option value="Mono">Mono</option>
   </select>
 
-  <input name="entry.2021424275" placeholder="PP Contenidos" required>
+  <input id="PP_Contenidos" name="entry.2021424275" placeholder="PP_Contenidos" required readonly>
   <input name="entry.528607190" placeholder="ANI" required>
   <input name="entry.938303002" placeholder="Suscripción" required>
 
@@ -93,16 +93,16 @@
 
   
   <input name="entry.1718642695" placeholder="Folio" required>
-  <input name="entry.448110065" placeholder="Visualizador" required>
-  <input name="entry.461946160" placeholder="Oferta_aplicada" required>
-  <input name="entry.1321924343" placeholder="Observación">
-
+  <input id="Visualizador" name="entry.448110065" placeholder="Visualizador" required readonly> 
+  <input id="Oferta_aplicada" name="entry.461946160" placeholder="Oferta_aplicada" required readonly>
+  <input id="Observación" name="entry.1321924343" placeholder="Observación" required readonly>
+ 
   <!-- TERCER BLOQUE -->
   <hr>
-  <input name="entry.1187965590" placeholder="Realizaste-Cambio-de-Plan" required> 
+  <input id="Realizaste_Cambio_de_Plan" name="entry.1187965590" placeholder="Realizaste_Cambio_de_Plan"> 
   
   <!-- OFRECISTE -->
-  <select id="¿Ofreciste?" name="entry.435477933" required>
+  <select id="Ofreciste" name="entry.435477933" required>
     <option value="">Selecciona</option>
     <option value="Si">Si</option>
     <option value="No">No</option>
@@ -110,8 +110,9 @@
   </select>
 
   
-  <input id="motivoInput" name="entry.217503159" placeholder="Motivo-no-oferta"> 
-  <input name="entry.795483787" placeholder="Producto" required> 
+  <input id="Motivo_no_oferta" name="entry.217503159" placeholder="Motivo_no_oferta"> 
+  <input id="Producto" name="entry.795483787" placeholder="Producto"> 
+  
 
    <!-- MOTIVO DE BAJA -->
   <select id="Motivo-baja" name="entry.960725776" required>
@@ -184,7 +185,7 @@
 function actualizarPPContenidos() {
   const tenencia = document.getElementById("tenencia").value;
   const resultado = document.getElementById("resultado").value;
-  const pp = document.getElementById("ppContenidos");
+  const pp = document.getElementById("PP_Contenidos");
 
   if (!tenencia || !resultado) {
     pp.value = "0";
@@ -409,6 +410,7 @@ document.getElementById("resultado").addEventListener("change", actualizarPPCont
 
 </body> 
 </html>
+
 
 
 
