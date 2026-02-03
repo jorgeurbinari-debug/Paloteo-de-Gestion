@@ -354,7 +354,7 @@ Visualizador.addEventListener("change", function() {
   if (val === "SI") setOptions(Oferta_aplicada, ["OFERTA 1","OFERTA 2","OFERTA 3"]);
   else if (val === "NO") setOptions(Oferta_aplicada, ["OFERTA NO ADHERIDA"]);
   else if (val === "ARGUMENTARIO") setOptions(Oferta_aplicada, ["ARGUMENTARIO"]);
-  else setOptions(Oferta_aplicada, []);
+  else setOptions(Oferta_aplicada, ["NO APLICA"]);
 });
 
 // Observación
@@ -371,7 +371,7 @@ Oferta_aplicada.addEventListener("change", function() {
       "SOLICITA LA OFERTA MAS AGRESIVA",
       "OFERTADOR NO ARROJA OPCIONES"
     ]);
-  else setOptions(Observacion, []);
+  else setOptions(Observacion, ["NO APLICA"]);
 });
 
 // Ofreciste
@@ -427,6 +427,7 @@ document.querySelector('select[name="entry.223399256"]').value = rep;
 
 </body>
 </html>
+
 
 
 
