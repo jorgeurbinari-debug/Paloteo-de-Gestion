@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Formulario Google</title>
+<meta charset="UTF-8">
+<title>Formulario Google</title>
 </head>
 <body>
 
@@ -15,14 +15,6 @@
   <option value="">Selecciona Representante</option>
   <option value="AGUILAR VARGAS URSULA NOEMI">AGUILAR VARGAS URSULA NOEMI</option>
   <option value="ALTAMIRANO MEGO MARIO SERGIO">ALTAMIRANO MEGO MARIO SERGIO</option>
-  <option value="ARBOLEDA SERRATO MEDALITH DEL ROCIO">ARBOLEDA SERRATO MEDALITH DEL ROCIO</option>
-  <option value="BALAREZO CASTILLO KEYLA KATHERINE">BALAREZO CASTILLO KEYLA KATHERINE</option>
-  <option value="BALLENA FERRE SARA FABIOLA">BALLENA FERRE SARA FABIOLA</option>
-  <option value="BECERRA GOMEZ PACO JHORDAN">BECERRA GOMEZ PACO JHORDAN</option>
-  <option value="BERRU MENDOZA MARIA ELIZABETH">BERRU MENDOZA MARIA ELIZABETH</option>
-  <option value="CARRANZA CHAVESTA JOSE ROMY">CARRANZA CHAVESTA JOSE ROMY</option>
-  <option value="CHUNG ESPEJO JUAN FRANCISCO">CHUNG ESPEJO JUAN FRANCISCO</option>
-  <option value="CHUNGA PIZARRO MARGARETH ESTEFANI">CHUNGA PIZARRO MARGARETH ESTEFANI</option>
   <option value="ÑIQUEN ARROYO KATTIA LISET">ÑIQUEN ARROYO KATTIA LISET</option>
 </select>
 
@@ -36,7 +28,7 @@
   <option value="Mono">Mono</option>
 </select>
 
-<input id="PP_Contenidos" name="entry.2021424275" placeholder="PP_Contenidos" readonly>
+<input id="PP_Contenidos" name="entry.2021424275" placeholder="PP Contenidos" readonly>
 <input name="entry.528607190" placeholder="ANI" required>
 <input name="entry.938303002" placeholder="Suscripción" required>
 
@@ -51,23 +43,49 @@
   <option value="BAJA PARCIAL">BAJA PARCIAL</option>
 </select>
 
-<input id="Contencion" name="entry.1265624613" placeholder="Contención" readonly>
-
-<select name="entry.526710020" required>
-  <option value="">Transferencia a isla</option>
-  <option value="Si">Si</option>
-  <option value="No">No</option>
+<select id="Contencion" name="entry.1265624613" required>
+  <option value="">Contención</option>
+  <option value="SI">SI</option>
+  <option value="NO">NO</option>
+  <option value="NO APLICA">NO APLICA</option>
 </select>
 
-<input name="entry.1718642695" placeholder="Folio" required>
-<input id="Visualizador" name="entry.448110065" placeholder="Visualizador" readonly>
-<input id="Oferta_aplicada" name="entry.461946160" placeholder="Oferta aplicada" readonly>
-<input id="Observacion" name="entry.1321924343" placeholder="Observación" readonly>
+<select id="Visualizador" name="entry.448110065" required>
+  <option value="">Visualizador</option>
+  <option value="SI">SI</option>
+  <option value="NO">NO</option>
+  <option value="ARGUMENTARIO">ARGUMENTARIO</option>
+  <option value="NO APLICA">NO APLICA</option>
+</select>
+
+<select id="Oferta_aplicada" name="entry.461946160" required>
+  <option value="">Oferta aplicada</option>
+  <option value="OFERTA 1">OFERTA 1</option>
+  <option value="OFERTA 2">OFERTA 2</option>
+  <option value="OFERTA 3">OFERTA 3</option>
+  <option value="OFERTA NO ADHERIDA">OFERTA NO ADHERIDA</option>
+  <option value="ARGUMENTARIO">ARGUMENTARIO</option>
+  <option value="NO APLICA">NO APLICA</option>
+</select>
+
+<select id="Observacion" name="entry.1321924343" required>
+  <option value="">Observación</option>
+  <option value="CLIENTE CONFORME">CLIENTE CONFORME</option>
+  <option value="ARGUMENTARIO">ARGUMENTARIO</option>
+  <option value="OFERTA NO SE ADAPTA">OFERTA NO SE ADAPTA</option>
+  <option value="NO APLICA">NO APLICA</option>
+</select>
 
 <hr>
 
-<!-- ================= CAMBIO DE PLAN ================= -->
-<input id="RealizasteCambioPlan" name="entry.1187965590" placeholder="Realizaste cambio de plan" readonly>
+<!-- ================= CAMBIO PLAN ================= -->
+<select id="RealizasteCambioPlan" name="entry.1187965590" required>
+  <option value="">¿Cambio de plan?</option>
+  <option value="MIGRA UP">MIGRA UP</option>
+  <option value="MIGRA DOWN">MIGRA DOWN</option>
+  <option value="BAJA PARCIAL">BAJA PARCIAL</option>
+  <option value="NO APLICA">NO APLICA</option>
+</select>
 
 <select id="Ofreciste" name="entry.435477933" required>
   <option value="">¿Ofreciste?</option>
@@ -76,8 +94,34 @@
   <option value="NO APLICA">NO APLICA</option>
 </select>
 
-<input id="MotivoNoOferta" name="entry.217503159" placeholder="Motivo no oferta" readonly>
-<input id="Producto" name="entry.795483787" placeholder="Producto" readonly>
+<select id="MotivoNoOferta" name="entry.217503159" required>
+  <option value="">Motivo no oferta</option>
+  <option value="CLIENTE">CLIENTE</option>
+  <option value="VMO">VMO</option>
+  <option value="EXPERIENCIA ANTERIOR">EXPERIENCIA ANTERIOR</option>
+  <option value="NO APLICA">NO APLICA</option>
+</select>
+
+<select id="Producto" name="entry.795483787" required>
+  <option value="">Producto</option>
+  <option value="FIBRA">FIBRA</option>
+  <option value="MOVIL">MOVIL</option>
+  <option value="FIBRA + MOVIL">FIBRA + MOVIL</option>
+  <option value="NO APLICA">NO APLICA</option>
+</select>
+
+<hr>
+
+<!-- ================= OFERTA MAXIMA ================= -->
+<select id="OfertaMaxima" name="entry.1087208625" required>
+  <option value="">Oferta máxima</option>
+  <option value="OFERTA 20">OFERTA 20</option>
+  <option value="OFERTA 30">OFERTA 30</option>
+  <option value="OFERTA 40">OFERTA 40</option>
+  <option value="OFERTA 50">OFERTA 50</option>
+  <option value="ARGUMENTARIO">ARGUMENTARIO</option>
+  <option value="NO APLICA">NO APLICA</option>
+</select>
 
 <hr>
 
@@ -88,71 +132,44 @@
 <script>
 // ================= PP CONTENIDOS =================
 function actualizarPP() {
-  const t = document.getElementById("TenenciaPrincipal").value;
-  const r = document.getElementById("Resultado").value;
-  const pp = document.getElementById("PP_Contenidos");
-
-  pp.value = "0";
+  const t = TenenciaPrincipal.value;
+  const r = Resultado.value;
+  PP_Contenidos.value = "0";
 
   if (r === "CONTENIDO") {
-    pp.value = (t === "Trio") ? "2" : (t ? "1" : "0");
+    PP_Contenidos.value = t === "Trio" ? "2" : t ? "1" : "0";
   }
-
   if (r === "BAJA PARCIAL" && (t === "Trio" || t === "Duo")) {
-    pp.value = "1";
+    PP_Contenidos.value = "1";
   }
 }
-
-document.getElementById("TenenciaPrincipal").addEventListener("change", actualizarPP);
-document.getElementById("Resultado").addEventListener("change", actualizarPP);
+TenenciaPrincipal.addEventListener("change", actualizarPP);
+Resultado.addEventListener("change", actualizarPP);
 
 // ================= RESULTADO =================
-document.getElementById("Resultado").addEventListener("change", function () {
-  const r = this.value;
-  document.getElementById("Contencion").value =
-    r === "CONSULTA" ? "NO APLICA" :
-    r === "BAJA TOTAL" ? "NO" : "SI";
+Resultado.addEventListener("change", () => {
+  Contencion.value =
+    Resultado.value === "CONSULTA" ? "NO APLICA" :
+    Resultado.value === "BAJA TOTAL" ? "NO" : "SI";
 
-  document.getElementById("Visualizador").value =
-    (r === "CONTENIDO") ? "SI" :
-    (r === "BAJA PARCIAL") ? "ARGUMENTARIO" : "NO APLICA";
+  Visualizador.value =
+    Resultado.value === "CONTENIDO" ? "SI" :
+    Resultado.value === "BAJA PARCIAL" ? "ARGUMENTARIO" : "NO APLICA";
 
-  document.getElementById("RealizasteCambioPlan").value =
-    (r === "CONTENIDO") ? "MIGRA" :
-    (r === "BAJA PARCIAL") ? "BAJA PARCIAL" : "NO APLICA";
-});
-
-// ================= VISUALIZADOR =================
-document.getElementById("Visualizador").addEventListener("change", function () {
-  const v = this.value;
-  document.getElementById("Oferta_aplicada").value =
-    v === "SI" ? "OFERTA APLICADA" :
-    v === "ARGUMENTARIO" ? "ARGUMENTARIO" : "NO APLICA";
-
-  document.getElementById("Observacion").value =
-    v === "SI" ? "CLIENTE CONFORME" :
-    v === "ARGUMENTARIO" ? "SE UTILIZA ARGUMENTARIO" : "NO APLICA";
-});
-
-// ================= OFRECISTE =================
-document.getElementById("Ofreciste").addEventListener("change", function () {
-  const v = this.value;
-  document.getElementById("MotivoNoOferta").value =
-    v === "NO" ? "CLIENTE" : "NO APLICA";
-
-  document.getElementById("Producto").value =
-    v === "SI" ? "FIBRA / MOVIL" : "NO APLICA";
+  RealizasteCambioPlan.value =
+    Resultado.value === "CONTENIDO" ? "MIGRA UP" :
+    Resultado.value === "BAJA PARCIAL" ? "BAJA PARCIAL" : "NO APLICA";
 });
 
 // ================= ENVIO =================
-document.getElementById("googleForm").addEventListener("submit", function(e) {
+googleForm.addEventListener("submit", e => {
   e.preventDefault();
   fetch(
     "https://docs.google.com/forms/d/1Mlds1RQPtTiL2oqL0dtmKdilH2Y2X57KW1V3ADudOa8/formResponse",
-    { method: "POST", mode: "no-cors", body: new FormData(this) }
+    { method: "POST", mode: "no-cors", body: new FormData(googleForm) }
   );
   alert("Datos enviados correctamente");
-  this.reset();
+  googleForm.reset();
 });
 </script>
 
