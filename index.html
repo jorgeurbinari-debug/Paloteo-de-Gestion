@@ -399,40 +399,74 @@ Ofreciste.addEventListener("change", function() {
   }
 });
 // nuevo pegado
-  async function cargarResumenRepresentante(nombreRep) {
+ async function cargarResumenRepresentante(nombreRep) {
   const urlCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ-eXRlbicS3iowX7BRDL4x-dD_7rjRPjRXCx37YwHRmv-f10K6LJvbJl7LR1TPuxg-ZDtk_B5WOWZI/pub?output=csv";
 
   const resp = await fetch(urlCSV);
-  const data = await resp.text();
+  const csvText = await resp.text();
 
-  const filas = data.split("\n").map(f => f.split(","));
-  const encabezados = filas[0];
+  // ✅ Parseador CSV REAL
+  function parseCSV(text) {
+    const rows = [];
+    let row = [];
+    let current = "";
+    let insideQuotes = false;
+
+    for (let char of text) {
+      if (char === '"') {
+        insideQuotes = !insideQuotes;
+      } else if (char === ',' && !insideQuotes) {
+        row.push(current);
+        current = "";
+      } else if (char === '\n' && !insideQuotes) {
+        row.push(current);
+        rows.push(row);
+        row = [];
+        current = "";
+      } else {
+        current += char;
+      }
+    }
+    row.push(current);
+    rows.push(row);
+    return rows;
+  }
+
+  const filas = parseCSV(csvText);
+  const encabezados = filas[0].map(h => h.trim());
 
   const colRep = encabezados.indexOf("REPRESENTANTE");
 
-  const filasRep = filas.filter((fila, i) => i > 0 && fila[colRep] === nombreRep);
+  const filasRep = filas.filter((fila, i) =>
+    i > 0 && fila[colRep] && fila[colRep].trim() === nombreRep.trim()
+  );
 
   if (filasRep.length === 0) {
-    document.getElementById("resumenContenido").innerHTML = "No hay registros para este representante.";
+    document.getElementById("resumenContenido").innerHTML =
+      "No hay registros para este representante.";
     return;
   }
 
-  function contar(colNombre) {
+  function sumar(colNombre) {
     const col = encabezados.indexOf(colNombre);
-    return filasRep.filter(f => f[col] && f[col].trim() !== "").length;
+    return filasRep.reduce((acc, f) => {
+      const val = parseInt(f[col]);
+      return acc + (isNaN(val) ? 0 : val);
+    }, 0);
   }
 
   document.getElementById("resumenContenido").innerHTML = `
-    <p><b>Registros totales:</b> ${filasRep.length}</p>
-    <p><b>Q ATENDIDAS:</b> ${contar("Q ATENDIDAS")}</p>
-    <p><b>Q CASOS:</b> ${contar("Q CASOS")}</p>
-    <p><b>Q TRANSFERENCIAS ISLA:</b> ${contar("Q TRANSFERENCIAS ISLA")}</p>
-    <p><b>Q CONTENIDOS FO:</b> ${contar("Q CONTENIDOS FO")}</p>
-    <p><b>Q NO CONTENIDOS FO:</b> ${contar("Q NO CONTENIDOS FO")}</p>
-    <p><b>OFERTAS APLICADAS:</b> ${contar("Q DE OFERTAS APLICADAS")}</p>
-    <p><b>ARGUMENTARIOS:</b> ${contar("Q DE ARGUMENTARIOS")}</p>
+    <p><b>Registros:</b> ${filasRep.length}</p>
+    <p><b>Q ATENDIDAS:</b> ${sumar("Q ATENDIDAS")}</p>
+    <p><b>Q CASOS:</b> ${sumar("Q CASOS")}</p>
+    <p><b>Q TRANSFERENCIAS ISLA:</b> ${sumar("Q TRANSFERENCIAS ISLA")}</p>
+    <p><b>Q CONTENIDOS FO:</b> ${sumar("Q CONTENIDOS FO")}</p>
+    <p><b>Q NO CONTENIDOS FO:</b> ${sumar("Q NO CONTENIDOS FO")}</p>
+    <p><b>OFERTAS APLICADAS:</b> ${sumar("Q DE OFERTAS APLICADAS")}</p>
+    <p><b>ARGUMENTARIOS:</b> ${sumar("Q DE ARGUMENTARIOS")}</p>
   `;
 }
+
 
 
   
@@ -478,6 +512,7 @@ cargarResumenRepresentante(rep);
 
 </body>
 </html>
+
 
 
 
