@@ -344,7 +344,7 @@ Resultado.addEventListener("change", function() {
   else setOptions(Contencion, []);
 
   if (["BAJA TOTAL","CONSULTA"].includes(val)) setOptions(Realizaste_Cambio_de_Plan, ["NO APLICA"]);
-  else if (val === "CONTENIDO") setOptions(Realizaste_Cambio_de_Plan, ["MIGRA DOWN","MIGRA UP","NO APLICA"]);
+  else if (val === "CONTENIDO") setOptions(Realizaste_Cambio_de_Plan, ["MIGRA DOWN","MIGRA UP","ALOCACION","NO APLICA"]);
   else if (val === "BAJA PARCIAL") setOptions(Realizaste_Cambio_de_Plan, ["BAJA PARCIAL"]);
   else setOptions(Realizaste_Cambio_de_Plan, []);
 });
@@ -428,6 +428,7 @@ document.querySelector('select[name="entry.223399256"]').value = rep;
 
 </body>
 </html>
+
 
 
 
