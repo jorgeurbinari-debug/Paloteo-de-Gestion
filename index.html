@@ -471,41 +471,30 @@ document.getElementById("googleForm").addEventListener("submit", async function(
     return;
   }
 
-  // ================== FORM 1 (el que ya usas) ==================
- 
-document.getElementById("googleForm").addEventListener("submit", async function(e) {
-  e.preventDefault(); // 🔴 FALTABA ESTO
-
-  // ================== FORM 1 ==================
   const formData1 = new FormData(this);
-
-  // ================== FORM 2 ==================
   const formData2 = new FormData();
 
-  // Mapeo exacto campo por campo
-  formData2.set("entry.492315650", formData1.get("entry.223399256")); // Representante
-  formData2.set("entry.1231747244", formData1.get("entry.263067344")); // Tenencia
-  formData2.set("entry.459211310", formData1.get("entry.2021424275")); // PP Contenidos
-  formData2.set("entry.1964130523", formData1.get("entry.528607190")); // ANI
-  formData2.set("entry.482337000", formData1.get("entry.938303002")); // Suscripción
-  formData2.set("entry.642025137", formData1.get("entry.308640399")); // Resultado
-  formData2.set("entry.1990652723", formData1.get("entry.1265624613")); // Contención
-  formData2.set("entry.1481086183", formData1.get("entry.526710020")); // Trans Isla
-  formData2.set("entry.257593832", formData1.get("entry.1718642695")); // Folio
-  formData2.set("entry.1892522086", formData1.get("entry.448110065")); // Visualizador
-  formData2.set("entry.728954034", formData1.get("entry.461946160")); // Oferta Aplicada
-  formData2.set("entry.1965024523", formData1.get("entry.1321924343")); // Observación
-  formData2.set("entry.1126405093", formData1.get("entry.1187965590")); // Migra
-  formData2.set("entry.1388418047", formData1.get("entry.435477933")); // Ofreciste
-  formData2.set("entry.1986891665", formData1.get("entry.217503159")); // Motivo No Oferta
-  formData2.set("entry.301914441", formData1.get("entry.795483787")); // Producto
-  formData2.set("entry.1577832641", formData1.get("entry.960725776")); // Motivo Baja
-  formData2.set("entry.669962419", formData1.get("entry.1087208625")); // Oferta Máxima
+  // ===== Mapeo al segundo Form =====
+  formData2.set("entry.492315650", formData1.get("entry.223399256"));
+  formData2.set("entry.1231747244", formData1.get("entry.263067344"));
+  formData2.set("entry.459211310", formData1.get("entry.2021424275"));
+  formData2.set("entry.1964130523", formData1.get("entry.528607190"));
+  formData2.set("entry.482337000", formData1.get("entry.938303002"));
+  formData2.set("entry.642025137", formData1.get("entry.308640399"));
+  formData2.set("entry.1990652723", formData1.get("entry.1265624613"));
+  formData2.set("entry.1481086183", formData1.get("entry.526710020"));
+  formData2.set("entry.257593832", formData1.get("entry.1718642695"));
+  formData2.set("entry.1892522086", formData1.get("entry.448110065"));
+  formData2.set("entry.728954034", formData1.get("entry.461946160"));
+  formData2.set("entry.1965024523", formData1.get("entry.1321924343"));
+  formData2.set("entry.1126405093", formData1.get("entry.1187965590"));
+  formData2.set("entry.1388418047", formData1.get("entry.435477933"));
+  formData2.set("entry.1986891665", formData1.get("entry.217503159"));
+  formData2.set("entry.301914441", formData1.get("entry.795483787"));
+  formData2.set("entry.1577832641", formData1.get("entry.960725776"));
+  formData2.set("entry.669962419", formData1.get("entry.1087208625"));
 
-  // Mensaje visual
-  document.getElementById("resumenContenido").innerHTML = "Enviando datos...";
-
-  // ================== ENVÍO A LOS 2 FORMS ==================
+  // ===== Envío a los 2 forms =====
   await Promise.all([
     fetch("https://docs.google.com/forms/d/1Mlds1RQPtTiL2oqL0dtmKdilH2Y2X57KW1V3ADudOa8/formResponse", {
       method: "POST",
@@ -519,8 +508,6 @@ document.getElementById("googleForm").addEventListener("submit", async function(
     })
   ]);
 
-  alert("Datos enviados correctamente");
-
   const rep = formData1.get("entry.223399256");
 
   this.reset();
@@ -529,7 +516,8 @@ document.getElementById("googleForm").addEventListener("submit", async function(
 
   cargarResumenRepresentante(rep);
 
-}); 
+});
+
 
   
 // ===== Inicializar selects vacíos al cargar =====
@@ -553,6 +541,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
