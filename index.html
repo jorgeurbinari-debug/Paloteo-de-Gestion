@@ -541,6 +541,11 @@ window.addEventListener("load", () => {
   setOptions(Realizaste_Cambio_de_Plan, []);
   setOptions(Motivo_no_oferta, []);
   setOptions(Producto, []);
+
+ Resultado.dispatchEvent(new Event("change"));
+  Visualizador.dispatchEvent(new Event("change"));
+  Ofreciste.dispatchEvent(new Event("change"));
+  
 });
 
 
@@ -548,6 +553,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
