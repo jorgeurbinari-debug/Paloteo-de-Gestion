@@ -14,6 +14,31 @@ body{
   margin:0;
   padding:30px;
 }
+  
+
+  
+  #resumenContenido table {
+  width: 100%;
+  table-layout: auto;
+}
+
+#resumenContenido th,
+#resumenContenido td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  white-space: nowrap;
+  text-align: left;
+}
+
+#resumenContenido th {
+  background: #f2f2f2;
+  position: sticky;
+  top: 0;
+}
+
+
+
+  
 h2{ text-align:center; margin-bottom:25px; }
 
 form{
@@ -436,7 +461,8 @@ async function cargarResumenRepresentante(nombreRep) {
 
   // ===== MOSTRAR REGISTROS EN TABLA =====
 let tabla = `
-  <table border="1" cellpadding="6" style="border-collapse:collapse; font-size:12px;">
+  <div style="overflow-x:auto; width:100%;">
+  <table style="border-collapse:collapse; font-size:12px; min-width:1400px;">
     <tr style="background:#f0f0f0;">
       ${Object.keys(filasRep[0]).map(col => `<th>${col}</th>`).join("")}
     </tr>
@@ -450,7 +476,8 @@ filasRep.forEach(fila => {
   tabla += "</tr>";
 });
 
-tabla += "</table>";
+tabla += "</table></div>";
+
 
 document.getElementById("resumenContenido").innerHTML = tabla;
 
@@ -553,6 +580,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
