@@ -434,20 +434,26 @@ async function cargarResumenRepresentante(nombreRep) {
     return;
   }
 
-  function sumar(col) {
-    return filasRep.reduce((acc, f) => acc + (parseInt(f[col]) || 0), 0);
-  }
+  // ===== MOSTRAR REGISTROS EN TABLA =====
+let tabla = `
+  <table border="1" cellpadding="6" style="border-collapse:collapse; font-size:12px;">
+    <tr style="background:#f0f0f0;">
+      ${Object.keys(filasRep[0]).map(col => `<th>${col}</th>`).join("")}
+    </tr>
+`;
 
-  document.getElementById("resumenContenido").innerHTML = `
-    <p><b>Registros:</b> ${filasRep.length}</p>
-    <p><b>Q ATENDIDAS:</b> ${sumar("Q ATENDIDAS")}</p>
-    <p><b>Q CASOS:</b> ${sumar("Q CASOS")}</p>
-    <p><b>Q TRANSFERENCIAS ISLA:</b> ${sumar("Q TRANSFERENCIAS ISLA")}</p>
-    <p><b>Q CONTENIDOS FO:</b> ${sumar("Q CONTENIDOS FO")}</p>
-    <p><b>Q NO CONTENIDOS FO:</b> ${sumar("Q NO CONTENIDOS FO")}</p>
-    <p><b>OFERTAS APLICADAS:</b> ${sumar("Q DE OFERTAS APLICADAS")}</p>
-    <p><b>ARGUMENTARIOS:</b> ${sumar("Q DE ARGUMENTARIOS")}</p>
-  `;
+filasRep.forEach(fila => {
+  tabla += "<tr>";
+  Object.values(fila).forEach(valor => {
+    tabla += `<td>${valor || ""}</td>`;
+  });
+  tabla += "</tr>";
+});
+
+tabla += "</table>";
+
+document.getElementById("resumenContenido").innerHTML = tabla;
+
 }
 
 
@@ -547,6 +553,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
