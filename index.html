@@ -458,6 +458,42 @@ async function cargarResumenRepresentante(nombreRep) {
       "No hay registros para este representante.";
     return;
   }
+  // ===== FUNCION PARA SUMAR COLUMNAS =====
+function sumar(col) {
+  return filasRep.reduce((acc, f) => {
+    return acc + (parseInt(f[col]) || 0);
+  }, 0);
+}
+
+// ===== CALCULOS =====
+const contenidosFO = sumar("Q CONTENIDOS FO");
+const noContenidosFO = sumar("Q NO CONTENIDOS FO");
+const adheridas = sumar("Q ADHERIDAS");
+const ofertasAplicadas = sumar("Q OFERTAS APLICADAS");
+
+// Evitar división entre 0
+const efectividad = (contenidosFO + noContenidosFO) > 0
+  ? ((contenidosFO / (contenidosFO + noContenidosFO)) * 100).toFixed(2)
+  : 0;
+
+const adherencia = ofertasAplicadas > 0
+  ? ((adheridas / ofertasAplicadas) * 100).toFixed(2)
+  : 0;
+
+// ===== PINTAR RESUMEN =====
+let resumenHTML = `
+  <div style="display:flex; gap:30px; margin-bottom:20px; font-size:18px;">
+    <div style="background:#e8f5e9; padding:15px; border-radius:8px;">
+      <b>EFECTIVIDAD</b><br>
+      ${efectividad} %
+    </div>
+    <div style="background:#e3f2fd; padding:15px; border-radius:8px;">
+      <b>ADHERENCIA</b><br>
+      ${adherencia} %
+    </div>
+  </div>
+`;
+
 
   // ===== MOSTRAR REGISTROS EN TABLA =====
 let tabla = `
@@ -479,7 +515,8 @@ filasRep.forEach(fila => {
 tabla += "</table></div>";
 
 
-document.getElementById("resumenContenido").innerHTML = tabla;
+document.getElementById("resumenContenido").innerHTML = resumenHTML + tabla;
+
 
 }
 
@@ -580,6 +617,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
