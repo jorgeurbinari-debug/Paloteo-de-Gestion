@@ -475,24 +475,30 @@ document.getElementById("googleForm").addEventListener("submit", async function(
   const formData2 = new FormData();
 
   // ===== Mapeo al segundo Form =====
-  formData2.set("entry.492315650", formData1.get("entry.223399256"));
-  formData2.set("entry.1231747244", formData1.get("entry.263067344"));
-  formData2.set("entry.459211310", formData1.get("entry.2021424275"));
-  formData2.set("entry.1964130523", formData1.get("entry.528607190"));
-  formData2.set("entry.482337000", formData1.get("entry.938303002"));
-  formData2.set("entry.642025137", formData1.get("entry.308640399"));
-  formData2.set("entry.1990652723", formData1.get("entry.1265624613"));
-  formData2.set("entry.1481086183", formData1.get("entry.526710020"));
-  formData2.set("entry.257593832", formData1.get("entry.1718642695"));
-  formData2.set("entry.1892522086", formData1.get("entry.448110065"));
-  formData2.set("entry.728954034", formData1.get("entry.461946160"));
-  formData2.set("entry.1965024523", formData1.get("entry.1321924343"));
-  formData2.set("entry.1126405093", formData1.get("entry.1187965590"));
-  formData2.set("entry.1388418047", formData1.get("entry.435477933"));
-  formData2.set("entry.1986891665", formData1.get("entry.217503159"));
-  formData2.set("entry.301914441", formData1.get("entry.795483787"));
-  formData2.set("entry.1577832641", formData1.get("entry.960725776"));
-  formData2.set("entry.669962419", formData1.get("entry.1087208625"));
+  function copiar(origen, destino, a, b) {
+  const valor = origen.get(a);
+  destino.append(b, valor ? valor : "");
+}
+
+copiar(formData1, formData2, "entry.223399256", "entry.492315650");
+copiar(formData1, formData2, "entry.263067344", "entry.1231747244");
+copiar(formData1, formData2, "entry.2021424275", "entry.459211310");
+copiar(formData1, formData2, "entry.528607190", "entry.1964130523");
+copiar(formData1, formData2, "entry.938303002", "entry.482337000");
+copiar(formData1, formData2, "entry.308640399", "entry.642025137");
+copiar(formData1, formData2, "entry.1265624613", "entry.1990652723");
+copiar(formData1, formData2, "entry.526710020", "entry.1481086183");
+copiar(formData1, formData2, "entry.1718642695", "entry.257593832");
+copiar(formData1, formData2, "entry.448110065", "entry.1892522086");
+copiar(formData1, formData2, "entry.461946160", "entry.728954034");
+copiar(formData1, formData2, "entry.1321924343", "entry.1965024523");
+copiar(formData1, formData2, "entry.1187965590", "entry.1126405093");
+copiar(formData1, formData2, "entry.435477933", "entry.1388418047");
+copiar(formData1, formData2, "entry.217503159", "entry.1986891665");
+copiar(formData1, formData2, "entry.795483787", "entry.301914441");
+copiar(formData1, formData2, "entry.960725776", "entry.1577832641");
+copiar(formData1, formData2, "entry.1087208625", "entry.669962419");
+
 
   // ===== Envío a los 2 forms =====
   await Promise.all([
@@ -541,6 +547,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
