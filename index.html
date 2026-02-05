@@ -481,6 +481,8 @@ const contenidosFO = sumar("Q CONTENIDOS FO");
 const noContenidosFO = sumar("Q NO CONTENIDOS FO");
 const adheridas = sumar("Q LÍNEAS CON OFERTA DE VISUALIZADOR");
 const ofertasAplicadas = sumar("Q DE OFERTAS APLICADAS");
+const totalcontenidos = sumar("PP CONTENIDOS");
+
 
 // Evitar división entre 0
 const efectividad = (contenidosFO + noContenidosFO) > 0
@@ -502,9 +504,9 @@ let resumenHTML = `
       <b>ADHERENCIA</b><br>
       ${adherencia} %
     </div>
-    <div style="background:#e3f2fd; padding:15px; border-radius:8px;">
+    <div style="background:#FFE0FF; padding:15px; border-radius:8px;">
       <b>CONTENIDOS</b><br>
-      ${contenidosFO} 
+      ${totalcontenidos} 
      </div>
   </div>
 `;
@@ -632,6 +634,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
