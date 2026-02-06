@@ -482,6 +482,9 @@ const noContenidosFO = sumar("Q NO CONTENIDOS FO");
 const adheridas = sumar("Q LÍNEAS CON OFERTA DE VISUALIZADOR");
 const ofertasAplicadas = sumar("Q DE OFERTAS APLICADAS");
 const totalcontenidos = sumar("PP CONTENIDOS");
+const targumentario = sumar("Q DE ARGUMENTARIOS");
+const ofertadhe = sumar("Q LÍNEAS CON OFERTA DE VISUALIZADOR");
+  
 
 
 // Evitar división entre 0
@@ -492,6 +495,15 @@ const efectividad = (contenidosFO + noContenidosFO) > 0
 const adherencia = ofertasAplicadas > 0
   ? ((adheridas / ofertasAplicadas) * 100).toFixed(2)
   : 0;
+
+const argumentario = (contenidosFO + noContenidosFO) > 0
+  ? ((targumentario / (contenidosFO + noContenidosFO)) * 100).toFixed(2)
+  : 0;
+
+const oferta = (contenidosFO + noContenidosFO) > 0
+  ? ((ofertadhe / (contenidosFO + noContenidosFO)) * 100).toFixed(2)
+  : 0;  
+  
 
 // ===== PINTAR RESUMEN =====
 let resumenHTML = `
@@ -508,6 +520,16 @@ let resumenHTML = `
       <b>CONTENIDOS</b><br>
       ${totalcontenidos} 
      </div>
+    <div style="background:#F5F7FA; padding:15px; border-radius:8px;">
+      <b>Argumentario</b><br>
+      ${argumentario} %
+     </div>
+    <div style="background:#e8f5e9; padding:15px; border-radius:8px;">
+      <b>Oferta</b><br>
+      ${oferta} %
+     </div>
+
+     
   </div>
 `;
 
@@ -634,6 +656,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
