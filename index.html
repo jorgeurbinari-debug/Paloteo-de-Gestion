@@ -504,7 +504,15 @@ const argumentario = (contenidosFO + noContenidosFO) > 0
 
 const oferta = (contenidosFO + noContenidosFO) > 0
   ? ((ofertadhe / (contenidosFO + noContenidosFO)) * 100).toFixed(2)
+  : 0;
+  
+const capl = (totalcontenidos - targumentario) > 0
+  ? ((cambiodeplan / (totalcontenidos - targumentario)) * 100).toFixed(2)
   : 0;  
+  
+const bparcial = (totalcontenidos - targumentario) > 0
+  ? ((bajaparcial / (totalcontenidos - targumentario)) * 100).toFixed(2)
+  : 0; 
   
 
 // ===== PINTAR RESUMEN =====
@@ -530,7 +538,17 @@ let resumenHTML = `
       <b>Oferta</b><br>
       ${oferta} %
      </div>
+     
+    <div style="background:#E6CFE6; padding:15px; border-radius:8px;">
+      <b>Cambio de Plan</b><br>
+      ${capl} %
+     </div>
 
+    <div style="background:#D8BFD8; padding:15px; border-radius:8px;">
+      <b>Baja Parcial</b><br>
+      ${bparcial} %
+     </div>
+     
      
   </div>
 `;
@@ -658,6 +676,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
