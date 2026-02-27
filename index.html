@@ -662,7 +662,9 @@ copiar(formData1, formData2, "entry.1087208625", "entry.669962419");
 
   document.querySelector('select[name="entry.223399256"]').value = rep;
 
-  cargarResumenRepresentante(rep);
+     setTimeout(() => {
+      cargarResumenRepresentante(rep);
+    }, 5000);
 
 });
 
@@ -689,6 +691,7 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
+
 
 
 
